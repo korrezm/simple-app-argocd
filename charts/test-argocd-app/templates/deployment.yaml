@@ -1,19 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "test-argocd-app.fullname" . }}
+  name: {{ .Values.service.name }}
+  labels:
+    app: {{ .Values.service.name }}
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      app: {{ include "test-argocd-app.name" . }}
+      app: {{ .Values.service.name }}
   template:
     metadata:
       labels:
-        app: {{ include "test-argocd-app.name" . }}
+        app: {{ .Values.service.name }}
     spec:
       containers:
-      - name: {{ .Chart.Name }}
+      - name: {{ .Values.service.name }}
         image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
         command: ["node", "/app/index.js"]
         workingDir: /app
@@ -25,4 +27,4 @@ spec:
       volumes:
       - name: app-code
         configMap:
-          name: {{ include "test-argocd-app.name" . }}-code
+          name: {{ .Values.service.name }}-code

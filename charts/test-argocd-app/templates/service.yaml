@@ -1,10 +1,12 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ include "test-argocd-app.fullname" . }}
-spec:
+  name: {{ .Values.service.name }}
+  labels:
+    app: {{ .Values.service.name }}
+spec:name: {{ .Values.service.name }}  labels:    app: {{ .Values.service.name }}
   selector:
-    app: {{ include "test-argocd-app.fullname" . }}
+    app: {{ .Values.service.name }}
   ports:
     - protocol: TCP
       port: {{ .Values.service.port }}
