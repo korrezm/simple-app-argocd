@@ -4,7 +4,7 @@ metadata:
   name: {{ include "test-argocd-app.fullname" . }}
 spec:
   selector:
-    app: {{ include "test-argocd-app.name" . }}
+    app: {{ include "test-argocd-app.fullname" . }}
   ports:
     - protocol: TCP
       port: {{ .Values.service.port }}
