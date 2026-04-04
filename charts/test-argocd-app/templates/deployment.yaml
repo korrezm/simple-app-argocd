@@ -19,12 +19,5 @@ spec:
         image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
         command: ["node", "/app/index.js"]
         workingDir: /app
-        volumeMounts:
-        - name: app-code
-          mountPath: /app
         ports:
         - containerPort: 3000
-      volumes:
-      - name: app-code
-        configMap:
-          name: {{ .Values.service.name }}-code
