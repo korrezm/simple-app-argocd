@@ -1,0 +1,12 @@
+replicaCount: 2
+image:
+  repository: node
+  tag: 18-alpine
+  pullPolicy: IfNotPresent
+service:
+  type: NodePort
+  port: 80
+ingress:
+  enabled: true
+  host: test-argocd-app.local
+  path: /

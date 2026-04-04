@@ -1,0 +1,5 @@
+apiVersion: v2
+name: simple-app
+description: A simple Node.js app for Argo CD testing
+version: 0.1.0
+appVersion: "1.0"
