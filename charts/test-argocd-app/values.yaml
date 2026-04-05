@@ -6,7 +6,7 @@ image:
 service:
   name: test-argocd-app
   type: NodePort
-  port: 80
+  port: 443
 ingress:
   enabled: true
   host: test-argocd-app.local
