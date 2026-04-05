@@ -1,4 +1,4 @@
-replicaCount: 3
+replicaCount: 2
 image:
   repository: koroulis/test-argocd-app
   tag: latest
